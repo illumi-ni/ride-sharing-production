@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Admin = require('../model/admin_model');
+const Admin = require('../model/Admin_Model');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
