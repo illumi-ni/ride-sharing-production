@@ -59,7 +59,7 @@ function App() {
           <Footer/>
           </Route>
 
-          <Route path ="/About">
+          <Route path ="/about">
           <Header/>
           <About/>
           <Footer/>
