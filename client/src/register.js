@@ -31,7 +31,7 @@ class register extends Component {
             email: this.state.email,
             gender: this.state.gender
         }
-        axios.post("http://localhost:90/customer/insert", data)
+        axios.post("/customer/insert", data)
             .then(response => {
                 console.log(response)
             })
