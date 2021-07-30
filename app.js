@@ -35,27 +35,27 @@ const server = app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
 
-const wsServer = new ws.Server({ noServer: true });
+// const wsServer = new ws.Server({ noServer: true });
 
-wsServer.on('connection', socket => {
-  console.log("New user connected");
+// wsServer.on('connection', socket => {
+//   console.log("New user connected");
   
-  socket.on('message', function incoming(data) {
-    // const obj = JSON.parse({ data })
-    console.log(data)
-  });
+//   socket.on('message', function incoming(data) {
+//     // const obj = JSON.parse({ data })
+//     console.log(data)
+//   });
 
-  // socket.send("Hello from the server");
+//   // socket.send("Hello from the server");
 
-  // const cus = new Customer({ fullname: "fullname", email: "email", contact: "contact", gender: "gender" });
-  // socket.send(JSON.stringify(cus));
-});
+//   // const cus = new Customer({ fullname: "fullname", email: "email", contact: "contact", gender: "gender" });
+//   // socket.send(JSON.stringify(cus));
+// });
 
 // `server` is a vanilla Node.js HTTP server, so use
 // the same ws upgrade process described here:
 // https://www.npmjs.com/package/ws#multiple-servers-sharing-a-single-https-server
-server.on('upgrade', (request, socket, head) => {
-  wsServer.handleUpgrade(request, socket, head, socket => {
-    wsServer.emit('connection', socket, request);
-  });
-});
+// server.on('upgrade', (request, socket, head) => {
+//   wsServer.handleUpgrade(request, socket, head, socket => {
+//     wsServer.emit('connection', socket, request);
+//   });
+// });
