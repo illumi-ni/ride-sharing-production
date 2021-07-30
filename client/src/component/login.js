@@ -21,7 +21,7 @@ class login extends Component {
     }
     submitLogin = (e)=>{
         e.preventDefault();
-        axios.post("http://localhost:90/admin/login", this.state)
+        axios.post("/admin/login", this.state)
         .then((response)=>{
             console.log(response);
             localStorage.setItem('token',response.data.token)

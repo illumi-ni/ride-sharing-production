@@ -28,7 +28,7 @@ SendItems=(e)=>{
     //preventDefault== By default refresh hunxa so, blank nahoss vannah refresh nahoss vannah
     e.preventDefault();
 
-    axios.post("http://localhost:90/customer/booking",this.state)
+    axios.post("/customer/booking",this.state)
     .then((response)=>{
         console.log(response)
 		alert(response.data.message)

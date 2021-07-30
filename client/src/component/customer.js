@@ -19,7 +19,7 @@ class customer extends Component {
             email: this.state.email
         }
 
-        axios.post("http://localhost:90/sendotp", data)
+        axios.post("/sendotp", data)
             .then(response => {
                 // console.log(response.data.success)
                 // if(response.data.success == true) {

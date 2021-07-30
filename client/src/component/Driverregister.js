@@ -47,7 +47,7 @@ class Driverregister extends Component{
     
         console.log(data)
     
-        axios.post("http://localhost:90/admin/register",data)
+        axios.post("/admin/register",data)
     
         
         .then((response)=>{

@@ -32,7 +32,7 @@ class register extends Component {
             contact: this.state.contact,
             gender: this.state.gender
         }
-        axios.post("http://localhost:90/customer/insert", data)
+        axios.post("/customer/insert", data)
             .then(response => {
                 console.log(response)
                 

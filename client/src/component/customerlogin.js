@@ -13,7 +13,7 @@ class customerlogin extends Component {
 
     submitLogin = (e)=>{
         e.preventDefault();
-        axios.post("http://localhost:90/verifyotp", this.state)
+        axios.post("/verifyotp", this.state)
         .then((response)=>{
             console.log(response);
             localStorage.setItem('token',response.data.token)
