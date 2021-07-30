@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const db = require('./database/db');
 const driver_route = require('./route/driver_route');
 const route_customer = require('./route/customer_route');
-const admin_route = require('./route/admin_route');
+const admin_route = require('./route/Admin_Route');
 const booking_route = require('./route/bookingAdvance_route');
 
 app.use(express.static("images"));
