@@ -52,7 +52,7 @@ router.post('/verifyotp', function (req, res) {
 
     if (success == true) {
         Customer.findOne({ email: email1 }).then(function (customerData) {
-            const token = jwt.sign({ customerID: customerData._id }, 'Sercretkey');
+            const token = jwt.sign({ customerID: customerData._id }, 'Secretkey');
             res.status(200).json({ success: true, token: token, customerData: customerData });
         }).catch(function (err) {
             res.status(500).json({ success: false, message: err });

@@ -22,6 +22,8 @@ router.post('/admin/register', upload.single('licence'), function (req, res) {
     const vechileNo = req.body.vechileNo;
     const model = req.body.model;
 
+    console.log(req.body)
+
     //{variable:modelname}
     bcryptjs.hash(password, 10, function (err, hash) {
         const driverData = new Driver({

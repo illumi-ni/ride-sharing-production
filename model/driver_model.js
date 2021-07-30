@@ -15,7 +15,7 @@ const Driver = mongoose.model('Driver', {
     },
     password: {
         type: String,
-        required: true
+        // required: true
     },
     phone: {
         type: String,

@@ -1,0 +1,122 @@
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#Admin {
+    width: 100%;
+    height: 70vh;
+    background: url("../images/first.jpg") top center;
+    background-size: cover;
+    position: relative;
+    margin-bottom: -140px;
+    z-index: 1;
+  }
+  
+  #Admin:before {
+    content: "";
+    background: rgba(60, 65, 51, 0.4);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  #Admin .Admin-container {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  #Admin h1 {
+   margin-top: 80px;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 50px;
+    color: #fff;
+   
+  }
+ 
+  
+  @media (min-width: 1024px) {
+    #Admin {
+      background-attachment: fixed;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #Admin {
+      height: 100vh;
+    }
+    #Admin h1 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    #Admin h2 {
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 30px;
+    }
+    #Admin .Admin-container {
+      padding: 0 15px;
+    }
+  }
+  
+  @media (max-height: 500px) {
+    #Admin {
+      height: 120vh;
+    }
+  }
+
+  .customerdetail{
+    position: relative;
+    margin-top: 200px;
+    margin-bottom: 30px
+
+  }
+ .customerdetail ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+  }
+  
+  .customerdetail li {
+    position: relative;
+    margin-left: 70px;
+    justify-content: center;
+    text-decoration: underline;
+    font-size: 20px;
+    line-height: 0;
+    align-items: center;
+    color: black;
+  }
+
+.custom-tab{
+    position: relative;
+    margin-top: 200px;
+}
+
+.custom-tbl{
+    margin-bottom: 30px !important;
+}
+.list-group-item :hover{
+  color:black;
+  }
+  .list-group-item{
+      color: black;
+  }
+
+.customerdetailtable{
+    height: 100%;
+    margin-bottom: 30px;
+}
+/*table*/
+

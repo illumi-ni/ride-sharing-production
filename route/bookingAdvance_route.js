@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const AdvanceBook= require('../model/advancedBook_model');
 const upload = require('../middleware/upload');
+const auth = require('../middleware/auth');
 
 router.post('/customer/booking', function (req, res) {
  
@@ -18,6 +19,7 @@ router.post('/customer/booking', function (req, res) {
         fullname: fullname, phone: phone, from: from, to: to, date: date, time: time, distance: distance, 
         price: price
     });
+
     BookingData.save()
         .then(function (result) {
             res.status(201).json({ success: true, message: "Booking has been successfully inserted!!!" });

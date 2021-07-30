@@ -21,7 +21,9 @@
     "nodemailer": "^6.6.2",
     "nodemon": "^2.0.9",
     "path": "^0.12.7",
-    "validator": "^13.6.0"
+    "validator": "^13.6.0",
+    "websocket": "^1.0.34",
+    "ws": "^7.5.3"
   },
   "devDependencies": {
     "cucumber": "^7.0.0-rc.0"

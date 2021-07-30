@@ -1,49 +1,80 @@
 import React from "react"
 import {BrowserRouter as Router, Switch, Route}
 from "react-router-dom";
-import Register from "./register"
-import Login from "./login";
-import CustomerLogin from "./customerlogin";
-import Customer from "./customer";
+import Register from "./component/register"
+import Login from "./component/login";
+import CustomerLogin from "./component/customerlogin";
+import Customer from "./component/customer";
 import './App.css';
-import Header from "./Header";
-import Driverregister from "./Driverregister";
-import Home from "./Home";
-import Footer from "./Footer";
-import Booking from "./booking";
-import Contact from "./Contact"
+import Header from "./component/Header";
+import Driverregister from "./component/Driverregister";
+import Home from "./component/Home";
+import Footer from "./component/Footer";
+import Booking from "./component/booking";
+import Services from "./component/Services";
+import Contact from "./component/Contact"
 import Test from "./test";
-import About from "./About";
+import About from "./component/About";
+import Admindetail from "./component/Admindetail";
+import Admindriverdetail from "./component/Admindriverdetail";
+import Adminbookingdetail from "./component/Adminbookingdetail";
+// import AdminHeader from "./component/AdminHeader";
+import 'jquery';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
+
+        {/* <Route path ="/adminheader">
+          <AdminHeader/>
+          </Route> */}
+
           <Route path ="/register">
+            <Header/>
             <Register/>
             <Footer/>
           </Route>
           
           <Route path ="/adminlogin">
             <Login/>
+            
+            <Footer/>
+          </Route>
+
+          <Route path ="/admindetail">
+            <Admindetail/>
+            <Footer/>
+          </Route>
+
+          <Route path ="/admindriverdetail">
+            <Admindriverdetail/>
+            <Footer/>
+          </Route>
+
+          <Route path ="/adminbookingdetail">
+            <Adminbookingdetail/>
             <Footer/>
           </Route>
 
           <Route path ="/Driverregister">
           <Header/>
             <Driverregister/>
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
 
           <Route path ="/customerlogin">
+            <Header/>
             <CustomerLogin/>
             <Footer/>
           </Route>
 
           <Route path ="/customer">
+          <Header/>
             <Customer/>
             <Footer/>
           </Route>
@@ -52,6 +83,11 @@ function App() {
             <Contact/>
             <Footer/>
           </Route>
+          <Route path ="/service">
+          <Header/>
+          <Services/>
+          <Footer/>
+          </Route>
 
           <Route path ="/booking">
           <Header/>
@@ -59,11 +95,13 @@ function App() {
           <Footer/>
           </Route>
 
-          <Route path ="/about">
+          <Route path ="/About">
           <Header/>
           <About/>
           <Footer/>
           </Route>
+
+         
           
           <Route path ="/">
           <Header/>
