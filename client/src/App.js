@@ -1,6 +1,6 @@
 import React from "react"
-import {BrowserRouter as Router, Switch, Route}
-from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route }
+  from "react-router-dom";
 import Register from "./component/register"
 import Login from "./component/login";
 import CustomerLogin from "./component/customerlogin";
@@ -15,109 +15,160 @@ import Services from "./component/Services";
 import Contact from "./component/Contact"
 import Test from "./test";
 import About from "./component/About";
+import AdminHeader from "./component/AdminHeader";
 import Admindetail from "./component/Admindetail";
 import Admindriverdetail from "./component/Admindriverdetail";
 import Adminbookingdetail from "./component/Adminbookingdetail";
-// import AdminHeader from "./component/AdminHeader";
+import Customerprofile from "./component/Customerprofile";
+import UpcomingRide from "./component/Upcomingride";
+import DriverUpdate from "./component/DriverUpdate";
+import AdminRegister from "./component/AdminRegister";
 import 'jquery';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
-
+import BookingUpdate from "./component/BookingUpdate";
+import History from "./component/History";
+import Demo from "./component/demo";
+import AdminDashboard from "./component/AdminDashboard";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
-
-        {/* <Route path ="/adminheader">
-          <AdminHeader/>
-          </Route> */}
-
-          <Route path ="/register">
-            <Header/>
-            <Register/>
-            <Footer/>
-          </Route>
-          
-          <Route path ="/adminlogin">
-            <Login/>
-            
-            <Footer/>
+          <Route path="/register">
+            <Header />
+            <Register />
+            <Footer />
           </Route>
 
-          <Route path ="/admindetail">
-            <Admindetail/>
-            <Footer/>
+          <Route path="/adminlogin">
+            <Header />
+            <Login />
+            <Footer />
           </Route>
 
-          <Route path ="/admindriverdetail">
-            <Admindriverdetail/>
-            <Footer/>
+          <Route path="/adminregister">
+            <Header />
+            <AdminRegister />
+            <Footer />
           </Route>
 
-          <Route path ="/adminbookingdetail">
-            <Adminbookingdetail/>
-            <Footer/>
+          <Route path="/AdminDashboard">
+            <AdminHeader />
+            <AdminDashboard />
+            <Footer />
           </Route>
 
-          <Route path ="/Driverregister">
-          <Header/>
-            <Driverregister/>
-            {/* <Footer/> */}
+          <Route path="/admindashboard">
+            <AdminHeader />
+            <Footer />
           </Route>
 
-          <Route path ="/customerlogin">
-            <Header/>
-            <CustomerLogin/>
-            <Footer/>
+          <Route path="/admindetail">
+            <AdminHeader />
+            <Admindetail />
+            <Footer />
           </Route>
 
-          <Route path ="/customer">
-          <Header/>
-            <Customer/>
-            <Footer/>
-          </Route>
-          <Route path= "/contact">
-            <Header/>
-            <Contact/>
-            <Footer/>
-          </Route>
-          <Route path ="/service">
-          <Header/>
-          <Services/>
-          <Footer/>
+          <Route path="/admindriverdetail">
+            <AdminHeader />
+            <Admindriverdetail />
+            <Footer />
           </Route>
 
-          <Route path ="/booking">
-          <Header/>
-          <Booking/>
-          <Footer/>
+          <Route path="/adminbookingdetail">
+            <AdminHeader />
+            <Adminbookingdetail />
+            <Footer />
           </Route>
 
-          <Route path ="/About">
-          <Header/>
-          <About/>
-          <Footer/>
+          <Route path="/customerprofile">
+            <Header></Header>
+            <Customerprofile />
+            <Footer />
           </Route>
 
-         
-          
-          <Route path ="/">
-          <Header/>
-          <Home/>
-          <Footer/>
+          <Route path="/demo">
+            <Header></Header>
+            <Demo />
+            <Footer />
           </Route>
 
-          <Route path ="/test">
-          <Test/>
+          <Route path="/History">
+            <Header></Header>
+            <History />
+            <Footer />
           </Route>
-          
-        
-      </Switch>
+
+          <Route path="/Upcomingride">
+            <Header></Header>
+            <UpcomingRide />
+            <Footer />
+          </Route>
+
+          <Route path="/BookingUpdate/:id" component={BookingUpdate} />
+
+          <Route path="/driverupdate">
+            <Header></Header>
+            <DriverUpdate />
+            <Footer />
+          </Route>
+
+          <Route path="/Driverregister">
+            <AdminHeader />
+            <Driverregister />
+            <Footer />
+          </Route>
+
+          <Route path="/customerlogin">
+            <Header />
+            <CustomerLogin />
+            <Footer />
+          </Route>
+
+          <Route path="/customer">
+            <Header />
+            <Customer />
+            <Footer />
+          </Route>
+
+          <Route path="/contact">
+            <Header />
+            <Contact />
+            <Footer />
+          </Route>
+
+          <Route path="/service">
+            <Header />
+            <Services />
+            <Footer />
+          </Route>
+
+          <Route path="/booking">
+            <Header />
+            <Booking />
+            <Footer />
+          </Route>
+
+          <Route path="/About">
+            <Header />
+            <About />
+            <Footer />
+          </Route>
+
+          <Route path="/">
+            <Header />
+            <Home />
+            <Footer />
+          </Route>
+
+          <Route path="/test">
+            <Test />
+          </Route>
+        </Switch>
       </div>
     </Router>
-   
   )
 }
 

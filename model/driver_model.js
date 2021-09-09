@@ -27,19 +27,23 @@ const Driver = mongoose.model('Driver', {
 
     },
     licence: {
-        type: String
-    },
-    dob: {
         type: String,
         required: true
+    },
+    gender: {
+        type: String,
+       
     },
     vechileNo: {
         type: String,
-        required: true
+        
     },
     model: {
         type: String,
         required: true
+    },
+    photo:{
+        type:String
     }
 });
 

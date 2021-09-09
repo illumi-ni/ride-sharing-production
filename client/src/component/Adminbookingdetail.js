@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
 import '../css/Admindetail.css';
 import { Link } from 'react-router-dom';
-// import { FaLocationArrow,FaGoogleDrive,FaPhoneAlt } from 'react-icons/fa';
+import axios from 'axios';
 
 class Adminbookingdetail extends Component {
+    state = {
+        details: []
+    }
+
+    //to get data automatically from database without any click event
+    componentDidMount() {
+        axios.get("http://localhost:90/booking/all")
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    details: response.data.data
+                })
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }
+
     render() {
         return (
             <div className="container-fluid">
-
                 <section id="Admin">
                     <div className="Admin-container" data-aos="fade-up">
                         <h1>Admin Page</h1>
-
                     </div>
                 </section>
+
                 <div className="row customerdetail">
                     <div className="col-md-4 "></div>
                     <div className="col-md-4 ">
@@ -43,23 +60,36 @@ class Adminbookingdetail extends Component {
                                         <thead>
                                             <tr>
                                                 <th>Fullname</th>
-                                                <th>Phone </th>
+                                                {/* <th>Phone </th> */}
                                                 <th>From</th>
                                                 <th>To</th>
                                                 <th>Date</th>
                                                 <th>Time</th>
                                                 <th>Distance</th>
                                                 <th>Price</th>
-                                                
-
                                             </tr>
 
+                                            {
+                                                this.state.details.map((booking) => {
+                                                    return (
+
+                                                        <tr>
+                                                            <td>{booking.fullname}</td>
+                                                            {/* <td>{booking.phone}</td> */}
+                                                            <td>{booking.from}</td>
+                                                            <td>{booking.to}</td>
+                                                            <td>{booking.date}</td>
+                                                            <td>{booking.time}</td>
+                                                            <td>{booking.distance}</td>
+                                                            <td>{booking.price}</td>
+                                                        </tr>
+                                                    )
+                                                })
+                                            }
+
                                         </thead>
-
                                         <tbody>
-                                            
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>
@@ -67,10 +97,8 @@ class Adminbookingdetail extends Component {
                     </div>
                 </section>
             </div>
-
         )
     }
 }
 
-
-export default Adminbookingdetail
+export default Adminbookingdetail;

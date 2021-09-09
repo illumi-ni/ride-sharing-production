@@ -25,10 +25,10 @@ a {
 	margin: 15px 0;
 }
 
-button {
+.button {
 	border-radius: 20px;
-	border: 1px solid #01949A;
-	background-color: #01949A;
+	border: 1px solid black;
+	background-color: #c4a621;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -75,14 +75,15 @@ input {
 
 .Admin-log {
 	/* margin-top: 80px;  */
-	padding-top: 80px;
+	padding-top: 60px;
+	margin-bottom: 50px;
 }
 
 .form-container {
 	position: absolute;
 	top: 0;
 	height: 100%;
-	background-color: rgb(228, 113, 78);
+	background-color: rgb(160, 158, 158);
 	
     
 }
@@ -109,10 +110,10 @@ input {
 
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: white;
+	/* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
 	background: linear-gradient(to right, #FF4B2B, #FF416C);
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; */
 	background-size: cover;
 	background-position: 0 0;
 	color: #ffffff;
@@ -133,7 +134,7 @@ input {
 	top: 0;
 	height: 100%;
 	width: 50%;
-    background-image: url("../images/Tesla.jpg");
+    background-image: url("../images/adminlog.jpg");
 	background-repeat: no-repeat;
 }
 

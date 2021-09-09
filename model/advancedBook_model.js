@@ -1,38 +1,36 @@
 const mongoose = require('mongoose');
 
-const AdvanceBook = mongoose.model('AdvanceBook',{
-    fullname:{
-        type: String, 
-        required: true  
+const AdvanceBook = mongoose.model('AdvanceBook', {
+    ID: {
+        type: String
     },
-    phone: {
+    email: {
         type: String,
-        required :true
     },
-    from:{
+    contact: {
         type: String,
-        required : true
-        
     },
-    to:{
-        type:String
+    from: {
+        type: String,
     },
-    date:{
-        type:String,
-        required:true
+    to: {
+        type: String
+    },
+    date: {
+        type: String,
+        required: true
     },
     time: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
-    distance:{
-        type:String,
-        required:true
+    distance: {
+        type: String,
+        required: true
     },
-    price:{
-        type:String
-    } 
-    
+    price: {
+        type: String
+    }
 });
 
 module.exports = AdvanceBook;

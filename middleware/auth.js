@@ -7,9 +7,9 @@ module.exports.checkCustomer = function (req, res, next) {
     try {
         const token = req.headers.authorization.split(" ")[1];
         const verifiedData = jwt.verify(token, 'Secretkey');
-        Customer.findOne({ _id: verifiedData.userID })
+        Customer.findOne({ _id: verifiedData.customerID })
             .then(function (userInfo) {
-                req.userData = userInfo;
+                req.customerData = userInfo;
                 next();
             })
             .catch(function (e) {
@@ -25,9 +25,9 @@ module.exports.checkDriver = function (req, res, next) {
     try {
         const token = req.headers.authorization.split(" ")[1];
         const verifiedData = jwt.verify(token, 'Secretkey');
-        Driver.findOne({ _id: verifiedData.userID })
+        Driver.findOne({ _id: verifiedData.driverID })
             .then(function (userInfo) {
-                req.userData = userInfo;
+                req.driverData = userInfo;
                 next();
             })
             .catch(function (e) {
@@ -43,9 +43,9 @@ module.exports.checkAdmin = function (req, res, next) {
     try {
         const token = req.headers.authorization.split(" ")[1];
         const verifiedData = jwt.verify(token, 'Secretkey');
-        Admin.findOne({ _id: verifiedData.userID })
+        Admin.findOne({ _id: verifiedData.adminID })
             .then(function (userInfo) {
-                req.userData = userInfo;
+                req.adminData = userInfo;
                 next();
             })
             .catch(function (e) {

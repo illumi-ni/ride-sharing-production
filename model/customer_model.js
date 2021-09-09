@@ -9,7 +9,6 @@ const Customer = mongoose.model('Customer', {
     email: {
         type: String,
         required: true,
-        unique: true,
         lowercase: true,
         validate: value => {
             if (!validator.isEmail(value)) {
@@ -24,6 +23,10 @@ const Customer = mongoose.model('Customer', {
     gender: {
         type: String,
         required: true
+    },
+    photo:{
+        type: String,
+        default:""
     }
 });
 

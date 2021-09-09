@@ -3,7 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-const ws = require('ws');
+const Driver = require("./model/driver_model");
+const Customer = require("./model/customer_model");
 
 const app = express();
 app.use(cors());
@@ -13,14 +14,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const db = require('./database/db');
 const driver_route = require('./route/driver_route');
 const route_customer = require('./route/customer_route');
-const admin_route = require('./route/Admin_Route');
+const admin_route = require('./route/admin_route');
 const booking_route = require('./route/bookingAdvance_route');
+const contact_route = require('./route/contact_route');
+const ride_route = require('./route/ride_route');
 
 app.use(express.static("images"));
 app.use(driver_route);
 app.use(route_customer);
 app.use(admin_route);
 app.use(booking_route);
+app.use(contact_route);
+app.use(ride_route);
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static( './client/build' ));
@@ -35,27 +40,61 @@ const server = app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
 
-// const wsServer = new ws.Server({ noServer: true });
+const socket = require('socket.io');
+const io = socket(server);
 
-// wsServer.on('connection', socket => {
-//   console.log("New user connected");
-  
-//   socket.on('message', function incoming(data) {
-//     // const obj = JSON.parse({ data })
-//     console.log(data)
-//   });
+let customerID, driverID, joinerID;
 
-//   // socket.send("Hello from the server");
+io.sockets.on('connection', function (client) {
 
-//   // const cus = new Customer({ fullname: "fullname", email: "email", contact: "contact", gender: "gender" });
-//   // socket.send(JSON.stringify(cus));
-// });
+  client.on("message", function (data) {
 
-// `server` is a vanilla Node.js HTTP server, so use
-// the same ws upgrade process described here:
-// https://www.npmjs.com/package/ws#multiple-servers-sharing-a-single-https-server
-// server.on('upgrade', (request, socket, head) => {
-//   wsServer.handleUpgrade(request, socket, head, socket => {
-//     wsServer.emit('connection', socket, request);
-//   });
-// });
+    const data1 = JSON.parse(data)
+    customerID = data1.customerID;
+
+    // sending to all drivers except sender
+    drivers = Driver.find({}).then((driver) => {
+      driver.forEach((d, key) => {
+        client.broadcast.emit("driver_" + d._id, data1);
+      })
+    })
+  });
+
+  client.on("accept", function (ad) {
+    const adData = JSON.parse(ad)
+    driverID = adData._id;
+    client.broadcast.emit('accepted' + customerID, adData);
+  });
+
+
+  client.on("invite", function (data) {
+
+    const data1 = JSON.parse(data)
+    
+    // sending to all customers except sender
+    customers = Customer.find({}).then((customer) => {
+      customer.forEach((cd, key) => {
+        client.broadcast.emit("customer_" + cd._id, data1);
+      })
+    })
+  });
+
+  client.on("join", function (cd) {
+    const cdData = JSON.parse(cd)
+    joinerID = cdData.customer._id
+    // console.log("This is joiner ID"+cdData.customer._id)
+    client.broadcast.emit('ridejoined' + customerID, cdData);
+  });
+
+  client.on("driverCancel", function (message) {
+    client.broadcast.emit('drCanceled' + customerID, message);
+  });
+
+  client.on("driverCancel", function (message) {
+    client.broadcast.emit('driverCanceled' + joinerID, message);
+  });
+
+  client.on("customerCancel", function (message) {
+    client.broadcast.emit('cuCanceled' + driverID, message);
+  });
+});

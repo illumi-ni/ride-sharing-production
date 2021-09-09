@@ -1,3 +1,73 @@
+.Adminheader{
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  background-color: white;
+  z-index: 100;
+  top: 0;
+  box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+}
+.Adminheader_left{
+  display: flex;
+  justify-content: space-evenly;
+}
+.Adminheader_input{
+  display: flex;
+  align-items: center;
+  background-color: #eff2f5;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 999px;
+}
+.Adminheader_input > input{
+  border: none;
+  background-color: transparent;
+  outline-width: 0;
+}
+.header_center{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+.Adminheader_left > img{
+  height: 40px;
+}
+.Adminheader_option > .MuiSvgIcon-root{
+  color: gray;
+}
+.Adminheader_option:hover > .MuiSvgIcon-root {
+  color: blue;
+}
+.Adminheader_option {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  cursor:pointer;
+}
+.Adminheader_option:hover{
+  background-color: black;
+  border-radius: 10px;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: none;
+}
+.Adminheader_option--active{
+  border-bottom:2px solid blue;
+}
+.Adminheader_info{
+  display: flex;
+  align-items: center;
+}
+
+.Adminheader_info > h4{
+  margin-left: 10px;
+}
+.Adminheader_right{
+  display: flex;
+}
+
+
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -40,7 +110,7 @@
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
-    color: #fff;
+    color: black;
    
   }
  
@@ -78,7 +148,8 @@
   .customerdetail{
     position: relative;
     margin-top: 200px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    text-decoration: none;
 
   }
  .customerdetail ul {
@@ -86,13 +157,15 @@
     padding: 0;
     display: flex;
     list-style: none;
+    text-decoration: none;
+    margin-left: 40px;
   }
   
   .customerdetail li {
     position: relative;
-    margin-left: 70px;
+    margin-left: 50px;
     justify-content: center;
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 20px;
     line-height: 0;
     align-items: center;
